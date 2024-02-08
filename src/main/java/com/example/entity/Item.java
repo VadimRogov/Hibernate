@@ -13,6 +13,6 @@ public class Item {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "items")
     private Cart cart;
 }

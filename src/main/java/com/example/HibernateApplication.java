@@ -10,6 +10,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @SpringBootApplication
 public class HibernateApplication {
     private static final Logger LOGGER = LoggerFactory.getLogger(HibernateApplication.class);
@@ -23,6 +26,11 @@ public class HibernateApplication {
         Cart cart = new Cart();
         Item item1 = new Item();
         Item item2 = new Item();
+
+        Set<Item> list = new HashSet<>();
+        cart.setItems(list);
+        cart.getItems().add(item1);
+        cart.getItems().add(item2);
 
         session.save(cart);
         session.save(item1);
